@@ -16,3 +16,9 @@ Card - What a Card can have?
   - Suit(Spade, Hearts, Clubs or Diamonds)
   - Rank - 1 and 11
   - Show (to put face up)
+
+Deck - 52 Cards
+  - shuffle
+  - suits, ranks
+  - deal_card
+  - replace_with
