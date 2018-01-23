@@ -1,6 +1,6 @@
 class Card
   attr_accessor :suit, :rank, :show
-  SUITS = ["Spade", "Hearts"," Clubs", "Diamonds"]
+  SUITS = ["Spade", "Hearts", "Clubs", "Diamonds"]
   RANKS = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Quenn", "King", "Ace"]
 
   def initialize(suit, rank)
@@ -11,6 +11,14 @@ class Card
     else
       @suit = "UNKNOWN"
       @rank = "UNKNOWN"
+    end
+  end
+
+  def to_s
+    if show
+      "#{rank} of #{suit}"
+    else
+      ""
     end
   end
 

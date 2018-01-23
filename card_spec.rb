@@ -32,4 +32,13 @@ describe Card do
     expect(@card.rank).to eq("8")
   end
 
+  it "output rank and suit if 'show' is true" do
+    expect("#{@card}").to eq("#{@card.rank} of #{@card.suit}")
+  end
+
+  it "does not output anything if 'show' is false" do
+    @card.show = false
+    expect("#{@card}").to eq("")
+  end
+
 end
