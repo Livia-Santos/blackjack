@@ -1,7 +1,7 @@
 require_relative "deck"
 
 describe Deck do
-  SUITS = ["Spade", "Hearts", "Clubs", "Diamonds"]
+  SUITS = ["Spades", "Hearts", "Clubs", "Diamonds"]
   RANKS = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
 
   before do
@@ -45,7 +45,12 @@ describe Deck do
   end
 
   it "gets a new deck with replace_with" do
-
+    deck_of_cards = []
+    deck_of_cards.push(Card.new("Clubs", "2"))
+    deck_of_cards.push(Card.new("Clubs", "3"))
+    new_deck = @deck.dup
+    new_deck.replace_with(deck_of_cards)
+    expect(@deck.deck).not_to eq(new_deck.deck)
   end
 
 end

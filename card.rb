@@ -1,6 +1,6 @@
 class Card
   attr_accessor :suit, :rank, :show
-  SUITS = ["Spade", "Hearts", "Clubs", "Diamonds"]
+  SUITS = ["Spades", "Hearts", "Clubs", "Diamonds"]
   RANKS = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
 
   def initialize(suit, rank)
