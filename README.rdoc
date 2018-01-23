@@ -22,3 +22,12 @@ Deck - 52 Cards
   - suits, ranks
   - deal_card
   - replace_with
+
+Hand
+ - Dealer = gets a hand
+ - Player = gets a hand
+
+ - Gives us the cards dealt
+ - dealt cards array - method to add cards to this array
+ - total value of player's or dealer's dealt Cards
+ - showing the details of each card dealt and the total value
