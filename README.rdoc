@@ -30,6 +30,8 @@ Hand
  - Gives us the cards dealt
  - dealt cards array - method to add cards to this array
  - total value of player's or dealer's dealt Cards
+  * all face cards have value of 10 (Queen, King, Jack)
+  * all number cards - have their value in their rank
   * Ace can have value of 1 or 11
  - showing the details of each card dealt and the total value
   * show and no show
