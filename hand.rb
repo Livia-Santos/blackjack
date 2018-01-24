@@ -27,6 +27,10 @@ class Hand
   def get_value
     card_ranks = dealt_cards.collect{|card| card.rank}
     value = card_ranks.reduce(0){|acc, rank| acc + VALUES[rank.to_sym]}
+    if card_ranks.include?("Ace")
+      value += 10 if value + 10 <= 21
+    end
+    value
   end
 
 end

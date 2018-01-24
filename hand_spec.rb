@@ -43,7 +43,12 @@ describe Hand do
       expect(@hand.get_value).to eq(19)
     end
     it "returns correct value with Ace and a Jack" do
+      card1 = Card.new("Diamonds", "Jack")
+      card2 = Card.new("Clubs", "Ace")
+      @hand.add_card(card1)
+      @hand.add_card(card2)
 
+      expect(@hand.get_value).to eq(21)
     end
   end
 
