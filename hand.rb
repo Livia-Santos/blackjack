@@ -33,4 +33,17 @@ class Hand
     value
   end
 
+  def to_s
+    report = ""
+    dealt_cards.each do |card|
+      report += "#{card.to_s}, " if card.show
+    end
+    if dealt_cards.first.show == false
+      first_value = VALUES[dealt_cards.first.rank.to_sym]
+      report + "Total value: #{(get_value - first_value).to_s}"
+    else
+      report + "Total value: #{get_value.to_s}"
+    end
+  end
+
 end

@@ -54,10 +54,20 @@ describe Hand do
 
   describe "Hand output" do
     it "returns the correct output if 'show' is true for all cards" do
+      @hand.add_card(Card.new("Diamonds", "Jack"))
+      @hand.add_card(Card.new("Clubs", "Ace"))
 
+      expect("#{@hand}").to eq("Jack of Diamonds, Ace of Clubs, Total value: 21")
     end
     it "returns the correct output if 'show' is false for one card" do
+      card1 = Card.new("Diamonds", "Jack")
+      card2 = Card.new("Clubs", "Ace")
+      card1.show = false
 
+      @hand.add_card(card1)
+      @hand.add_card(card2)
+
+      expect("#{@hand}").to eq("Ace of Clubs, Total value: 11")
     end
   end
 
