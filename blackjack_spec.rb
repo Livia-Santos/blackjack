@@ -7,6 +7,7 @@ describe Blackjack do
   before do
     @blackjack = Blackjack.new(SUITS, RANKS)
   end
+
   describe "instance methods" do
     it "responds to player_hand" do
       expect(@blackjack).to respond_to(:player_hand)
@@ -42,6 +43,23 @@ describe Blackjack do
 
     it "responds to set_results" do
       expect(@blackjack).to respond_to(:set_results)
+    end
+  end
+
+  describe "dealing cards" do
+    before do
+      @blackjack.deal
+      @dealer_cards = @blackjack.dealer_hand.dealt_cards
+      @player_cards = @blackjack.player_hand.dealt_cards
+    end
+
+    it "retruns two ccards for the dealer and the player" do
+      expect(@dealer_cards.count).to eq(2)
+      expect(@player_cards.count).to eq(2)
+    end
+
+    it "does not display the dealer firt card" do
+      expect(@dealer_cards.first.show).to be false
     end
   end
 
