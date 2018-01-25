@@ -35,3 +35,15 @@ Hand
   * Ace can have value of 1 or 11
  - showing the details of each card dealt and the total value
   * show and no show
+
+Running the Game - BlackJack
+ - player_hand
+ - dealer_hand
+ - playing - whether game is on or cannot
+ - current_gamer
+ - deck
+ - deal
+ - hit
+ - stand
+ - show_hands
+ - set_result
