@@ -61,6 +61,23 @@ describe Blackjack do
     it "does not display the dealer firt card" do
       expect(@dealer_cards.first.show).to be false
     end
+
+    it "ends the player's turn if he has a blackjack" do
+      card1 = Card.new("Clubs", "10")
+      card2 = Card.new("Hearts", "Ace")
+      card3 = Card.new("Clubs", "3")
+
+      card4 = Card.new("Diamonds", "10")
+      card5 = Card.new("Diamonds", "King")
+      card6 = Card.new("Hearts", "Queen")
+
+      @blackjack = Blackjack.new(SUITS,RANKS)
+      new_deck = [card4, card5, card2, card3, card1, card6]
+      @blackjack.deck.replace_with(new_deck)
+      @blackjack.deal
+      expect(@blackjack.current_gamer).to eq("Dealer")
+
+    end
   end
 
 
