@@ -11,7 +11,8 @@ class Blackjack
     @deck = Deck.new(suits,ranks)
     @deck.shuffle
     @playing = false
-    @current_gamer = ""
+    @current_gamer = "Player"
+    @result = ""
   end
 
   def deal
@@ -38,6 +39,15 @@ class Blackjack
   end
 
   def hit
+    # dealing a new card to the player_hand
+    if playing
+      if current_gamer == "Player"
+        add_new_card(player_hand)
+      elsif current_gamer == "Dealer"
+        add_new_card(dealer_hand)
+      end
+    end
+
   end
 
   def stand
@@ -47,6 +57,25 @@ class Blackjack
   end
 
   def set_results
+  end
+
+  def to_s
+    puts "Player hand is: #{player_hand.get_value}"
+    puts "Player has #{player_hand.dealt_cards.count}"
+    puts "Dealer hand is: #{dealer_hand.get_value}"
+    puts "Dealer has #{dealer_hand.dealt_cards.count}"
+
+  end
+
+  private
+
+  def add_new_card(hand)
+    hand.add_card(@deck.deal_card)
+
+    if hand.get_value > 21
+      @result = "#{current_gamer} busted!"
+      @playing = false
+    end
   end
 
 

@@ -53,7 +53,7 @@ describe Blackjack do
       @player_cards = @blackjack.player_hand.dealt_cards
     end
 
-    it "retruns two ccards for the dealer and the player" do
+    it "retruns two cards for the dealer and the player" do
       expect(@dealer_cards.count).to eq(2)
       expect(@player_cards.count).to eq(2)
     end
@@ -77,6 +77,23 @@ describe Blackjack do
       @blackjack.deal
       expect(@blackjack.current_gamer).to eq("Dealer")
 
+    end
+  end
+
+  describe "hitting a hand" do
+    before do
+      @blackjack.deal
+      @dealer_cards = @blackjack.dealer_hand.dealt_cards
+      @player_cards = @blackjack.player_hand.dealt_cards
+    end
+    it "can hit if playing is set to true" do
+      expect(@blackjack.playing).to be true
+    end
+
+    it "returns 2 cards for dealer but after Hit, player will have 3 cards" do
+      @blackjack.hit
+      expect(@dealer_cards.count).to eq(2)
+      expect(@player_cards.count).to eq(3)
     end
   end
 
