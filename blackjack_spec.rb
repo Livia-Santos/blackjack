@@ -76,7 +76,6 @@ describe Blackjack do
       @blackjack.deck.replace_with(new_deck)
       @blackjack.deal
       expect(@blackjack.current_gamer).to eq("Dealer")
-
     end
   end
 
@@ -95,7 +94,45 @@ describe Blackjack do
       expect(@dealer_cards.count).to eq(2)
       expect(@player_cards.count).to eq(3)
     end
+
+    it "correctly determines if player is busted" do
+      card1 = Card.new("Clubs", "10")
+      card2 = Card.new("Hearts", "10")
+      card3 = Card.new("Diamonds", "2")
+
+      card4 = Card.new("Spades", "10")
+      card5 = Card.new("Diamonds", "10")
+      card6 = Card.new("Hearts", "Queen")
+
+      @blackjack = Blackjack.new(SUITS,RANKS)
+
+      new_deck = [card6, card3, card2, card5, card1, card4]
+      @blackjack.deck.replace_with(new_deck)
+      @blackjack.deal
+      @blackjack.hit
+      expect(@blackjack.result).to eq("Player busted!")
+    end
+
+    it "correctly determines if Dealer is busted" do
+      card1 = Card.new("Clubs", "10")
+      card2 = Card.new("Hearts", "10")
+      card3 = Card.new("Diamonds", "Ace")
+
+      card4 = Card.new("Spades", "10")
+      card5 = Card.new("Diamonds", "10")
+      card6 = Card.new("Hearts", "Queen")
+
+      @blackjack = Blackjack.new(SUITS,RANKS)
+
+      new_deck = [card6, card3, card2, card5, card1, card4]
+      @blackjack.deck.replace_with(new_deck)
+      @blackjack.deal
+      @blackjack.hit
+
+      @blackjack.current_gamer = "Dealer"
+      @blackjack.hit
+
+      expect(@blackjack.result).to eq("Dealer busted!")
+    end
   end
-
-
 end

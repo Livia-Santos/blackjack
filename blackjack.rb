@@ -3,7 +3,7 @@ require_relative "hand"
 
 class Blackjack
   attr_reader :player_hand, :dealer_hand, :playing, :deck
-  attr_accessor :current_gamer
+  attr_accessor :current_gamer, :result
 
   def initialize(suits, ranks)
     @player_hand = nil
