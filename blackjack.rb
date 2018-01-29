@@ -63,18 +63,19 @@ class Blackjack
   end
 
   def show_hands
+    "Player's hand: #{player_hand}\nDealer's hand: #{dealer_hand}"
+
   end
 
   def set_results
   end
 
-  def to_s
-    puts "Player hand is: #{player_hand.get_value}"
-    puts "Player has #{player_hand.dealt_cards.count}"
-    puts "Dealer hand is: #{dealer_hand.get_value}"
-    puts "Dealer has #{dealer_hand.dealt_cards.count}"
-
-  end
+  # def to_s
+  #   puts "Player hand is: #{player_hand.get_value}"
+  #   puts "Player has #{player_hand.dealt_cards.count}"
+  #   puts "Dealer hand is: #{dealer_hand.get_value}"
+  #   puts "Dealer has #{dealer_hand.dealt_cards.count}"
+  # end
 
   private
 
