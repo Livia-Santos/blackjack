@@ -14,7 +14,7 @@ while game.player_hand.get_value <= 21 do
 
   unless player_cards.first.rank == "10" && player_cards.last.rank == "Ace" ||
     player_cards.first.rank == "Ace" && player_cards.last.rank == "10"
-    puts "Do you want to Hit(1) or Stand(2)?"
+    print "Do you want to Hit(1) or Stand(2)?"
     response = gets.chomp
 
     if response == "1"
@@ -36,5 +36,8 @@ while game.player_hand.get_value <= 21 do
     puts "Player's hand: #{game.player_hand.to_s}"
     puts "Dealer's hand: #{game.dealer_hand.to_s}"
     puts
+    break
   end
 end
+
+puts game.set_results
